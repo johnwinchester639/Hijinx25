@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #b30000, #330000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Postcard container */
+.postcard-container {
+  perspective: 1200px;
+}
+
+/* Flip card */
+.postcard {
+  width: 320px;
+  height: 220px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  cursor: pointer;
+}
+
+.postcard-container:hover .postcard {
+  transform: rotateY(180deg);
+}
+
+/* Card sides */
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* Front */
+.front {
+  background: linear-gradient(135deg, #006400, #0b6623);
+  border: 4px solid gold;
+}
+
+.front h1 {
+  font-size: 26px;
+  color: gold;
+  text-shadow: 0 0 8px #fff;
+}
+
+/* Back */
+.back {
+  background: linear-gradient(135deg, #8b0000, #b22222);
+  transform: rotateY(180deg);
+  border: 4px solid gold;
+}
+
+.back h2 {
+  color: #ffd700;
+}
+
+.back span {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+/* Snow animation */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 100px 150px, white, transparent),
+    radial-gradient(2px 2px at 200px 80px, white, transparent),
+    radial-gradient(2px 2px at 300px 120px, white, transparent);
+  animation: snow 10s linear infinite;
+}
+
+@keyframes snow {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 600px; }
+}
+
+
